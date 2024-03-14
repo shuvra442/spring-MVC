@@ -1,13 +1,23 @@
 package com.controller;
 
+import com.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * @ModelAttribute  this method automatically accept form data and set the data
+ *  and this method also used to print common data
+ */
 @Controller
 public class Register {
+
+    @ModelAttribute
+    public void commData(Model model){
+        model.addAttribute("reg","Registration");
+    }
 
     @RequestMapping("/reg")
     public String registerForm(){
@@ -15,15 +25,8 @@ public class Register {
     }
 
     @RequestMapping(path = "/processform", method = RequestMethod.POST)
-    public String formInfo(@RequestParam(name = "name") String userName,
-                           @RequestParam("email") String userEmail,
-                           @RequestParam("password") String userPassword, Model model){
-        System.out.println(userName);
-        System.out.println(userEmail);
-        System.out.println(userPassword);
-        model.addAttribute("userName", userName);
-        model.addAttribute("userEmail", userEmail);
-        model.addAttribute("userPassword",userPassword);
+    public String formInfo(@ModelAttribute User user, Model model){
+
         return "success";
     }
 

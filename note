@@ -1,11 +1,10 @@
-fetch data form website to controller using two way
+--------------------------------@ModelAttribute --------------------------------
 
-1. Using HttpServletRequest
-2. Using annotation base @RequestParam(here enter name="email" , required="type", value="")
+@ModelAttribute -> this annotation help us easily set form data..we dont need to used @RequestParam annotation
+
+this annotation automatically get the form data and set the form data and view data
 
 
-HttpServletRequest ==> its a old way to accept data from website to controller
+and this annotation also help to create common data to used overall controller
 
-2nd way is the standard way
-
-for better concept see the Register.java, regform.jsp and success.jsp...
+for better concept see User.java  register.java and regform.jsp and success.jsp

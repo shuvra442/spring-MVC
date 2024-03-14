@@ -1,3 +1,4 @@
+<%@ page isELIgnored="false" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +13,8 @@
   </head>
   <body>
     <form class="container mt-5" action="processform" method="post">
+
+    ${reg}
 
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Name</label>
